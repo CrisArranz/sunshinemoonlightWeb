@@ -1,13 +1,23 @@
-.title{
+.sm-title{
     width: 100%;
-    height: 4rem;
     background-color: #d99cec;
-    display: table;
+    background-image: url('./../assets/rainbow.png');
+    background-repeat: no-repeat;
+    background-position: top;
 }
 
-.title > p {
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-    font-size: 2rem;
+.sm-title-text{
+    width: 100%;
+}
+
+.sm-title-text-1{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 5.5rem;
+}
+.sm-title-text-2{
+    font-size: 3.5rem;
+}
+nav{
+    font-size: 1.5rem!important;
 }

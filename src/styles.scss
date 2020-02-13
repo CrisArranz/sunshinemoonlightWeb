@@ -1,8 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+
 * {
     margin: 0;
     padding: 0;
     color: white;
     font-weight: bold;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.sm-font-gv{
+    font-family: 'Great Vibes', cursive;
+}
+.sm-font-ha{
+    font-family: 'Homemade Apple', cursive;
+}
+.sm-font-cookie{
+    font-family: 'Cookie', cursive;
+}
+.sm-color{
+    color: #d99cec;
 }
