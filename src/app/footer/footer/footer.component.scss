@@ -1,0 +1,47 @@
+.sm-paymethod, .sm-social{
+    list-style: none;
+}
+.sm-paymethod > li, .sm-social > li{
+    display: inline;
+}
+
+.sm-social img{
+    width: 55px;
+    margin-right: 5px;
+}
+.sm-copyright::before{
+    content: "©";
+}
+.sm-copyright::after{
+    content: " ";
+}
+
+.sm-bg-color{
+    background-color: #E2B4F0;
+}
+.sm-footer-cp{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+}
+.sm-privacity{
+    font-size: 0.75rem;
+}
+
+.container .row{
+    margin-bottom: 0.9rem;
+}
+
+.sm-links{
+    text-decoration: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+a {
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+    color: #93CBEF;
+}
+

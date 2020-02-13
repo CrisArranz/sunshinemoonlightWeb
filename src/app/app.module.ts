@@ -6,6 +6,7 @@ import { TeddiesComponent } from './products/teddies/teddies.component';
 import { SheetsComponent } from './products/sheets/sheets.component';
 import { BadgesComponent } from './products/badges/badges.component';
 import { ProductsComponent } from './products/products.component';
+import { FooterComponent } from './footer/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ProductsComponent } from './products/products.component';
     TeddiesComponent,
     SheetsComponent,
     BadgesComponent,
-    ProductsComponent
+    ProductsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule
