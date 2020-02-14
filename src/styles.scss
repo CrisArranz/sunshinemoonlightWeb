@@ -2,29 +2,36 @@
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
 @import url('https://fonts.googleapis.com/css?family=Cookie');
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css";
 
 * {
     margin: 0;
     padding: 0;
 }
-
-.sm-font-gv{
+.sm-title{
+    background-color: #d99cec;
+    background-image: url('../src/assets/rainbow.png');
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.sm-font-1{
     font-family: 'Great Vibes', cursive;
 }
-.sm-font-ha{
+.sm-font-2{
     font-family: 'Homemade Apple', cursive;
 }
-.sm-font-cookie{
+.sm-font-3{
     font-family: 'Cookie', cursive;
 }
 .sm-font-normal{
     font-family: "Nunito Sans",Arvo,"Open Sans",sans-serif;
 }
-.sm-bg-color{
+.sm-bg-color-1{
     background-color: #d99cec;
 }
-.sm-wh-color{
+.sm-bg-color-2{
+    background-color: #E2B4F0;
+}
+.sm-color-white{
     color: white;
 }
 .sm-size-md{
@@ -35,4 +42,29 @@
 }
 .sm-size-xs{
     font-size: 0.85rem;
+}
+.sm-title-text-1{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 5.5rem;
+}
+.sm-title-text-2{
+    font-size: 3.5rem;
+}
+
+@media (max-width: 1024px) {
+    .sm-title-text-1{
+        font-size: 3.5rem;
+    }
+    .sm-title-text-2{
+        font-size: 1.5rem;
+    } 
+}
+@media (max-width: 425px) {
+    .sm-title-text-1{
+        font-size: 2.5rem;
+    }
+    .sm-title-text-2{
+        font-size: 1.5rem;
+    } 
 }

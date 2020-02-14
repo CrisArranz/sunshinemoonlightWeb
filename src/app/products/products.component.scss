@@ -1,4 +1,4 @@
-.sm-container{
+._container{
     color: #d99cec;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -21,19 +21,28 @@ a:hover{
     text-decoration: none;
     color: #93CBEF;
 }
-.sm-cart{
+.cart{
     float: right;
 }
-.sm-price{
+.price{
     float: left;
 }
 
-.sm-product{
+.product{
     margin-top: 0.75rem;
 }
-.glyphicon-shopping-cart{
+.shoppingCart{
     opacity: 0.5;
 }
-.glyphicon-shopping-cart:hover{
+.shoppingCart:hover{
     opacity: 1;
+}
+.listItems::before{
+    content:" ";
+}
+
+@media (max-width: 425px){
+    .row li{
+        display: block;
+    }
 }
