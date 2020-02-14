@@ -1,14 +1,24 @@
-<div class="container _container">
+<div class="container _container sm-color-1">
     <div class="row">
-        <div class="col-8">
+        <div class="col-md-4 col-12 mt-2">
+            <p class="text-left font-weight-bold">Ordenar por:</p>
+            <select class="custom-select custom-select-sm sm-color-1 mb-2" id="orderProducts">
+                <option value="name-asc" selected>NOMBRE (ASCENDENTE)</option>
+                <option value="name-desc">NOMBRE (DESCENDENTE)</option>
+                <option value="price-low">PRECIO (MÁS BAJOS PRIMERO)</option>
+                <option value="price-high">PRECIO (MÁS ALTOS PRIMERO)</option>
+            </select>
+        </div>
+        <div class="col-md-4 col-12 mt-2">
+            <p class="text-left font-weight-bold">Filtrar por:</p>
             <ul>
                 <li><input type="checkbox" checked><span class="listItems">Peluches</span></li>
                 <li><input type="checkbox" checked><span class="listItems">Láminas</span></li>
                 <li><input type="checkbox" checked><span class="listItems">Otros</span></li>
             </ul>
         </div>
-        <div class="col-4">
-            <p class="text-right"> productos encontrados</p>
+        <div class="col-md-4 col-12 mt-5">
+            <p class="text-right font-weight-bold"> productos encontrados</p>
         </div>
     </div>
     <div class="row product">
