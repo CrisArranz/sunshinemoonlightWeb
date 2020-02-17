@@ -1,0 +1,34 @@
+._shadow{
+    -webkit-box-shadow: 3px 3px 5px 6px #d99cec;
+    -moz-box-shadow: 3px 3px 5px 6px #d99cec;
+    box-shadow: 3px 3px 5px 6px #d99cec;
+}
+
+.nameProduct {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.separatorRoute:before{
+    content:" / "
+}
+
+nav ul {
+    list-style: none;
+}
+nav li {
+    display: inline-block;
+}
+
+.row .detailImage{
+    cursor: pointer;
+}
+
+@media (max-width: 768px){
+    .detailImage{
+        margin-top: 1.5rem;
+    }
+    .descriptionProduct{
+        margin-top: 2rem;
+    }
+}

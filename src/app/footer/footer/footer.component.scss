@@ -6,8 +6,8 @@
 }
 
 .social img{
-    width: 55px;
-    margin-right: 5px;
+    width: 3rem;
+    margin-right: 0.5rem;
 }
 
 .copyright::before{
@@ -40,7 +40,7 @@ a {
 }
 a:hover{
     text-decoration: none;
-    color: #93CBEF;
+    color: rgb(162, 9, 182);
 }
 
 @media (max-width: 991px){

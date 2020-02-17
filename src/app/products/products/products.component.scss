@@ -47,6 +47,15 @@ a:hover{
 .plusFilter{
     width: auto!important;
     height: 20px;
+    opacity: 0.75;
+}
+
+.filterOption{
+    cursor: pointer;
+}
+
+.filtersConfiguration{
+    padding: 0;
 }
 
 @media (max-width: 425px){
