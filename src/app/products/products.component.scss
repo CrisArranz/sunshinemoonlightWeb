@@ -40,15 +40,17 @@ a:hover{
 .listItems::before{
     content:" ";
 }
+.row ul{
+    display: block;
+}
+
+.plusFilter{
+    width: auto!important;
+    height: 20px;
+}
 
 @media (max-width: 425px){
     .row li{
-        display: block;
-    }
-}
-
-@media (max-width: 991px) and (min-width: 768px){
-    .row ul{
         display: block;
     }
 }

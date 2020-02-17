@@ -3,10 +3,20 @@
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
 @import url('https://fonts.googleapis.com/css?family=Cookie');
 
+
+//Basics Configurations
 * {
     margin: 0;
     padding: 0;
 }
+
+//Bootstrap Configurations
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+//Developer Classes Configuration
 .sm-title{
     background-color: #d99cec;
     background-image: url('../src/assets/rainbow.png');
