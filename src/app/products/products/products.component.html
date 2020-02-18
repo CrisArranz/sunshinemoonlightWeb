@@ -4,10 +4,10 @@
             <div class="col-md-7 col-12">
                 <p class="text-left font-weight-bold">Ordenar por:</p>
                 <select class="custom-select custom-select-sm sm-color-1 mb-2" id="orderProducts">
-                    <option value="name-asc" selected>NOMBRE (ASCENDENTE)</option>
-                    <option value="name-desc">NOMBRE (DESCENDENTE)</option>
-                    <option value="price-low">PRECIO (MÁS BAJOS PRIMERO)</option>
-                    <option value="price-high">PRECIO (MÁS ALTOS PRIMERO)</option>
+                    <option value="name-asc" selected (click)="console.log('123123123')">NOMBRE (ASCENDENTE)</option>
+                    <option value="name-desc" (click)="console.log('123123123')">NOMBRE (DESCENDENTE)</option>
+                    <option value="price-low" (click)="console.log('123123123')">PRECIO (MÁS BAJOS PRIMERO)</option>
+                    <option value="price-high" (click)="console.log('123123123')">PRECIO (MÁS ALTOS PRIMERO)</option>
                 </select>
             </div>
         </div>
@@ -52,17 +52,17 @@
         </div>
         <div class="col-md-9 col-12">
             <div class="row">
-                <div class="col-md-4 col-12">
+                <div *ngFor="let product of productsList" class="col-md-4 col-12 mt-1 mb-1">
                     <div class="row">
                         <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-3U8AAJ1c8.jpg"></a>
+                            <a routerLink="/product-detail"><img src="../../assets/{{product.payload.doc.data().picture}}"></a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <div>
-                                <a routerLink="/product-detail"><p>Producto 1</p></a>
-                                <div class="price">15.50 €</div>
+                                <a routerLink="/product-detail"><p>{{product.payload.doc.data().name}}</p></a>
+                                <div class="price">{{product.payload.doc.data().price}} €</div>
                                 <div class="cart">
                                     <button type="button" class="btn btn-default btn-sm">
                                         <span class="shoppingCart">
@@ -74,7 +74,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-12">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+    <div class="col-md-4 col-12">
                     <div class="row">
                         <div class="col-12">
                             <a routerLink="/product-detail"><img src="../../assets/EMxBM-5UUAE1Cn6.jpg"></a>
@@ -316,7 +322,4 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+-->
