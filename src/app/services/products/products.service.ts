@@ -6,13 +6,17 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ProductsService {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private db: AngularFirestore) { }
 
   getAllProducts(orderBy: string, direction: string) {
     if (direction === 'desc'){
-      return this.firestore.collection('SML_Products', ref => ref.orderBy(orderBy, 'desc')).snapshotChanges();
+      return this.db.collection('SML_Products', ref => ref.orderBy(orderBy, 'desc')).snapshotChanges();
     } else {
-      return this.firestore.collection('SML_Products', ref => ref.orderBy(orderBy, 'asc')).snapshotChanges();
+      return this.db.collection('SML_Products', ref => ref.orderBy(orderBy, 'asc')).snapshotChanges();
     }
+  }
+
+  getCountProducts() {
+    return this.db.collection('SML_Products').valueChanges();
   }
 }

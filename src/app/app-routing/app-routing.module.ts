@@ -6,7 +6,7 @@ import { ProductDetailComponent } from '../product-detail/product-detail/product
 
 const appRoutes: Routes = [
     {path: 'products', component: ProductsComponent, pathMatch: 'prefix'},
-    {path: 'product-detail', component: ProductDetailComponent, pathMatch: 'prefix'},
+    {path: 'product-detail/:id', component: ProductDetailComponent, pathMatch: 'prefix'},
     {path: '**', component: ProductsComponent, pathMatch: 'full'}
 ];
 
