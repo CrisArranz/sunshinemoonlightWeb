@@ -11,6 +11,8 @@ import { ProductDetailComponent } from './product-detail/product-detail/product-
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -26,6 +28,8 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

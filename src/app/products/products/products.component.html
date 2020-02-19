@@ -55,7 +55,7 @@
                 <div *ngFor="let product of listProducts" class="col-md-4 col-12 mt-1 mb-1">
                     <div class="row">
                         <div class="col-12">
-                            <a routerLink="/product-detail/{{product.payload.doc.data().name}}"><img src="../../assets/{{product.payload.doc.data().picture}}"></a>
+                            <a routerLink="/product-detail/{{product.payload.doc.data().name}}"><img src="{{product.payload.doc.data().picture}}"></a>
                         </div>
                     </div>
                     <div class="row">
