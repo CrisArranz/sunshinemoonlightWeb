@@ -26,10 +26,10 @@
                         </div>
                         <div class="collapse navbar-collapse" id="listTypeProducts">
                             <ul>
-                                <li><input type="checkbox" value="peluche" id="peluche"><span class="listItems" (click)="markCheckBox('peluche')">Peluches</span></li>
-                                <li><input type="checkbox" value="lamina" id="lamina"><span class="listItems" (click)="markCheckBox('lamina')">Láminas</span></li>
-                                <li><input type="checkbox" value="llavero" id="llavero"><span class="listItems" (click)="markCheckBox('llavero')">Llaveros</span></li>
-                                <li><input type="checkbox" value="otros" id="otros"><span class="listItems" (click)="markCheckBox('otros')">Otros</span></li>
+                                <li *ngFor="let option of productOptions" (change)="checked()">
+                                    <input type="checkbox" value="{{option.value}}" id="{{option.name}}" [(ngModel)]="option.checked">
+                                    <span class="listItems">{{option.title}}</span>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -42,8 +42,10 @@
                         </div>
                         <div class="collapse navbar-collapse" id="listArtistsProducts">
                             <ul>
-                                <li><input type="checkbox" value="lidiastars" id="lidiastars"><span class="listItems" (click)="markCheckBox('lidiastars')">LidiaStars</span></li>
-                                <li><input type="checkbox" value="neims" id="neims"><span class="listItems" (click)="markCheckBox('neims')">Neeims</span></li>
+                                <li *ngFor="let option of artistOptions" (change)="checked()">
+                                    <input type="checkbox" value="{{option.value}}" id="{{option.name}}" [(ngModel)]="option.checked">
+                                    <span class="listItems">{{option.title}}</span>
+                                </li>
                             </ul>
                         </div>
                     </nav>
