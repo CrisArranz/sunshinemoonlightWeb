@@ -8,15 +8,7 @@ export class ProductsService {
 
   constructor(private db: AngularFirestore) { }
 
-  getAllProducts(orderBy: string, direction: string) {
-    if (direction === 'desc'){
-      return this.db.collection('SML_Products', ref => ref.orderBy(orderBy, 'desc')).snapshotChanges();
-    } else {
-      return this.db.collection('SML_Products', ref => ref.orderBy(orderBy, 'asc')).snapshotChanges();
-    }
-  }
-
-  getCountProducts() {
+  getAllProducts() {
     return this.db.collection('SML_Products').valueChanges();
   }
 }

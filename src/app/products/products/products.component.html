@@ -4,7 +4,7 @@
             <div class="col-md-7 col-12">
                 <p class="text-left font-weight-bold">Ordenar por:</p>
                 <select class="custom-select custom-select-sm sm-color-1 mb-2" id="orderProducts" (change)="orderProducts($event.target.value)">
-                    <option value="name-asc" selected>NOMBRE (ASCENDENTE)</option>
+                    <option value="name-asc">NOMBRE (ASCENDENTE)</option>
                     <option value="name-desc">NOMBRE (DESCENDENTE)</option>
                     <option value="price-low">PRECIO (MÁS BAJOS PRIMERO)</option>
                     <option value="price-high">PRECIO (MÁS ALTOS PRIMERO)</option>
@@ -48,6 +48,25 @@
                         </div>
                     </nav>
                 </div>
+                <div class="col-12 mt-2 filtersConfiguration">
+                    <nav class="navbar navbar-light">
+                        <div class="w-100 filterOption" data-toggle="collapse" data-target="#listSingersProducts" aria-controls="listSingersProducts" aria-expanded="false" aria-label="Singers Products">
+                            <p class="text-left font-weight-bold float-left mb-1">Filtrar por Cantante</p>
+                            <img class="plusFilter float-right" src="../../assets/plus.png">
+                        </div>
+                        <div class="collapse navbar-collapse" id="listSingersProducts">
+                            <ul>
+                                <li><input type="checkbox" checked><span class="listItems">Jin</span></li>
+                                <li><input type="checkbox" checked><span class="listItems">Suga</span></li>
+                                <li><input type="checkbox" checked><span class="listItems">J-Hope</span></li>
+                                <li><input type="checkbox" checked><span class="listItems">RM</span></li>
+                                <li><input type="checkbox" checked><span class="listItems">Jimin</span></li>
+                                <li><input type="checkbox" checked><span class="listItems">V</span></li>
+                                <li><input type="checkbox" checked><span class="listItems">Jungkook</span></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
         </div>
         <div class="col-md-9 col-12">
@@ -55,14 +74,14 @@
                 <div *ngFor="let product of listProducts" class="col-md-4 col-12 mt-1 mb-1">
                     <div class="row">
                         <div class="col-12">
-                            <a routerLink="/product-detail/{{product.payload.doc.data().name}}"><img src="{{product.payload.doc.data().picture}}"></a>
+                            <a routerLink="/product-detail/{{product.name}}"><img src="{{product.picture}}"></a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <div>
-                                <a routerLink="/product-detail/{{product.payload.doc.data().name}}"><p>{{product.payload.doc.data().name}}</p></a>
-                                <div class="price">{{product.payload.doc.data().price}} €</div>
+                                <a routerLink="/product-detail/{{product.name}}"><p>{{product.name}}</p></a>
+                                <div class="price">{{product.price}} €</div>
                                 <div class="cart">
                                     <button type="button" class="btn btn-default btn-sm">
                                         <span class="shoppingCart">
@@ -78,248 +97,3 @@
         </div>
     </div>
 </div>
-
-<!--
-    <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-5UUAE1Cn6.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 2</p></a>
-                                <div class="price">25.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-6UwAAbPry.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 3</p></a>
-                                <div class="price">35.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-3U8AAJ1c8.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 1</p></a>
-                                <div class="price">15.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-5UUAE1Cn6.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 2</p></a>
-                                <div class="price">25.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-6UwAAbPry.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 3</p></a>
-                                <div class="price">35.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-3U8AAJ1c8.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 1</p></a>
-                                <div class="price">15.40 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-5UUAE1Cn6.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 2</p></a>
-                                <div class="price">25.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-6UwAAbPry.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 3</p></a>
-                                <div class="price">35.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-3U8AAJ1c8.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 1</p></a>
-                                <div class="price">15.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-5UUAE1Cn6.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 2</p></a>
-                                <div class="price">25.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <a routerLink="/product-detail"><img src="../../assets/EMxBM-6UwAAbPry.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <a routerLink="/product-detail"><p>Producto 3</p></a>
-                                <div class="price">35.50 €</div>
-                                <div class="cart">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="shoppingCart">
-                                            <img src="../../assets/shopping_cart.svg">
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
--->
