@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
   x: number;
   z: number;
 
-  constructor(public productService: ProductsService, private router: Router) { }
+  constructor(public productService: ProductsService) { }
 
   ngOnInit() {
     this.getAllProducts();
@@ -27,6 +27,10 @@ export class ProductsComponent implements OnInit {
       .getAllProducts()
       .subscribe(res => (this.listProducts = res))
 
+
+  filterProducts(value: string, idChecked: boolean) {
+    console.log(value + idChecked);
+  }
 
   orderProducts(value: string) {
     for (this.x = 0; this.x < this.listProducts.length - 1; this.x++) {

@@ -26,10 +26,10 @@
                         </div>
                         <div class="collapse navbar-collapse" id="listTypeProducts">
                             <ul>
-                                <li><input type="checkbox" checked><span class="listItems">Peluches</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">Láminas</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">Llaveros</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">Otros</span></li>
+                                <li><input type="checkbox" checked value="peluche" id="peluche" (change)="filterProducts($event.target.value, $event.target.checked)"><span class="listItems">Peluches</span></li>
+                                <li><input type="checkbox" checked value="lamina" id="lamina" (change)="filterProducts($event.target.value, $event.target.checked)"><span class="listItems">Láminas</span></li>
+                                <li><input type="checkbox" checked value="llavero" id="llavero" (change)="filterProducts($event.target.value, $event.target.checked)"><span class="listItems">Llaveros</span></li>
+                                <li><input type="checkbox" checked value="otros" id="otros" (change)="filterProducts($event.target.value, $event.target.checked)"><span class="listItems">Otros</span></li>
                             </ul>
                         </div>
                     </nav>
@@ -42,27 +42,8 @@
                         </div>
                         <div class="collapse navbar-collapse" id="listArtistsProducts">
                             <ul>
-                                <li><input type="checkbox" checked><span class="listItems">LidiaStars</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">Neeims</span></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <div class="col-12 mt-2 filtersConfiguration">
-                    <nav class="navbar navbar-light">
-                        <div class="w-100 filterOption" data-toggle="collapse" data-target="#listSingersProducts" aria-controls="listSingersProducts" aria-expanded="false" aria-label="Singers Products">
-                            <p class="text-left font-weight-bold float-left mb-1">Filtrar por Cantante</p>
-                            <img class="plusFilter float-right" src="../../assets/plus.png">
-                        </div>
-                        <div class="collapse navbar-collapse" id="listSingersProducts">
-                            <ul>
-                                <li><input type="checkbox" checked><span class="listItems">Jin</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">Suga</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">J-Hope</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">RM</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">Jimin</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">V</span></li>
-                                <li><input type="checkbox" checked><span class="listItems">Jungkook</span></li>
+                                <li><input type="checkbox" checked value="lidiastars" id="lidiastars"><span class="listItems" (change)="filterProducts($event.target.value, $event.target.checked)">LidiaStars</span></li>
+                                <li><input type="checkbox" checked value="neims" id="neims"><span class="listItems" (change)="filterProducts($event.target.value, $event.target.checked)">Neeims</span></li>
                             </ul>
                         </div>
                     </nav>
