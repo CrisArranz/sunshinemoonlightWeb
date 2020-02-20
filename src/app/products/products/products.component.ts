@@ -21,6 +21,14 @@ export class ProductsComponent implements OnInit {
     this.productService.getAllProducts().subscribe(res => (this.countProducts = res.length));
   }
 
+  markCheckBox(id: string) {
+    if(document.getElementById(id).checked === true){
+      document.getElementById(id).checked = false;
+    } else {
+      document.getElementById(id).checked = true;
+    }
+  }
+
   getAllProducts = () =>
     this.productService
       .getAllProducts()

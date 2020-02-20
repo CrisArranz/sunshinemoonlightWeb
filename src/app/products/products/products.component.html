@@ -26,10 +26,10 @@
                         </div>
                         <div class="collapse navbar-collapse" id="listTypeProducts">
                             <ul>
-                                <li><input type="checkbox" [value]="peluche" id="peluche"><span class="listItems">Peluches</span></li>
-                                <li><input type="checkbox" [value]="lamina" id="lamina"><span class="listItems">Láminas</span></li>
-                                <li><input type="checkbox" [value]="llavero" id="llavero"><span class="listItems">Llaveros</span></li>
-                                <li><input type="checkbox" [value]="otros" id="otros"><span class="listItems">Otros</span></li>
+                                <li><input type="checkbox" value="peluche" id="peluche"><span class="listItems" (click)="markCheckBox('peluche')">Peluches</span></li>
+                                <li><input type="checkbox" value="lamina" id="lamina"><span class="listItems" (click)="markCheckBox('lamina')">Láminas</span></li>
+                                <li><input type="checkbox" value="llavero" id="llavero"><span class="listItems" (click)="markCheckBox('llavero')">Llaveros</span></li>
+                                <li><input type="checkbox" value="otros" id="otros"><span class="listItems" (click)="markCheckBox('otros')">Otros</span></li>
                             </ul>
                         </div>
                     </nav>
@@ -42,8 +42,8 @@
                         </div>
                         <div class="collapse navbar-collapse" id="listArtistsProducts">
                             <ul>
-                                <li><input type="checkbox" [value]="lidiastars" id="lidiastars"><span class="listItems">LidiaStars</span></li>
-                                <li><input type="checkbox" [value]="neims" id="neims"><span class="listItems">Neeims</span></li>
+                                <li><input type="checkbox" value="lidiastars" id="lidiastars"><span class="listItems" (click)="markCheckBox('lidiastars')">LidiaStars</span></li>
+                                <li><input type="checkbox" value="neims" id="neims"><span class="listItems" (click)="markCheckBox('neims')">Neeims</span></li>
                             </ul>
                         </div>
                     </nav>

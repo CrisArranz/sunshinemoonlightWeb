@@ -2,6 +2,9 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
+input {
+    cursor: pointer;
+}
 .row ul{
     display: flex;
     justify-content: space-between;
@@ -33,6 +36,9 @@ a {
 }
 .shoppingCart:hover{
     opacity: 1;
+}
+.listItems:hover{
+    cursor: pointer;
 }
 .listItems::before{
     content:" ";
