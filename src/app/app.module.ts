@@ -13,6 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { FormsModule } from '@angular/forms';
+
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -21,7 +23,7 @@ import { environment } from '../environments/environment';
     ProductsComponent,
     FooterComponent,
     HeaderComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products/products.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -26,11 +25,6 @@ export class ProductsComponent implements OnInit {
     this.productService
       .getAllProducts()
       .subscribe(res => (this.listProducts = res))
-
-
-  filterProducts(value: string, idChecked: boolean) {
-    console.log(value + idChecked);
-  }
 
   orderProducts(value: string) {
     for (this.x = 0; this.x < this.listProducts.length - 1; this.x++) {
