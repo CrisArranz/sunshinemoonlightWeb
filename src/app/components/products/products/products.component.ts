@@ -12,7 +12,6 @@ export class ProductsComponent implements OnInit {
   listProducts: any;
   allProducts: any;
   countProducts: number;
-  product: Array<any>;
   productOptions = [];
   artistOptions = [];
 
@@ -25,7 +24,11 @@ export class ProductsComponent implements OnInit {
         this.allProducts = products;
         this.countProducts = this.listProducts.length;
         this.orderProducts('name-asc');
-        this.getAllOptions();
+        this.getAllOptions().then((options: Array<any>) => {
+          this.productOptions = options.filter(e => e.option === 'type');
+          this.artistOptions = options.filter(e => e.option === 'artist');
+          this.orderOptions('options');
+        });
       })
       .catch((err) => {
         console.log('Error', err);
@@ -46,44 +49,75 @@ export class ProductsComponent implements OnInit {
   }
 
   getAllOptions = () => {
+    return new Promise((resolve, reject) => {
     this.optionService
       .getAllOptions()
       .subscribe((res: Array<any>) => {
-        this.productOptions = res.filter(e => e.option === 'type');
-        this.artistOptions = res.filter(e => e.option === 'artist');
+        if (res === null) {
+          reject('Ha ocurrido un error en optionService');
+        }
+        resolve(res);
       });
+    });
   }
 
   orderProducts(value: string) {
-    for (let x = 0; x < this.listProducts.length - 1; x++) {
-      for (let z = 0; z < this.listProducts.length - x - 1; z++) {
+    this.listProducts = this.order(this.listProducts, value);
+  }
+  orderOptions(value: string) {
+    this.productOptions = this.order(this.productOptions, value);
+    this.artistOptions = this.order(this.artistOptions, value);
+  }
+
+  delFilters() {
+    for (let x = 0; x < this.productOptions.length; x++){
+      this.productOptions[x].checked = false;
+    }
+    for (let x = 0; x < this.artistOptions.length; x++) {
+      this.artistOptions[x].checked = false;
+    }
+
+    this.checked();
+  }
+
+  order(array: Array<any>, value: string) {
+    let product: Array<any>;
+    for (let x = 0; x < array.length - 1; x++) {
+      for (let z = 0; z < array.length - x - 1; z++) {
         switch (value) {
           case 'name-asc':
-            if (this.listProducts[z].name > this.listProducts[z + 1].name) {
-              this.product = this.listProducts[z];
-              this.listProducts[z] = this.listProducts[z + 1];
-              this.listProducts[z + 1] = this.product;
+            if (array[z].name > array[z + 1].name) {
+              product = array[z];
+              array[z] = array[z + 1];
+              array[z + 1] = product;
             }
             break;
           case 'name-desc':
-            if (this.listProducts[z].name < this.listProducts[z + 1].name) {
-              this.product = this.listProducts[z];
-              this.listProducts[z] = this.listProducts[z + 1];
-              this.listProducts[z + 1] = this.product;
+            if (array[z].name < array[z + 1].name) {
+              product = array[z];
+              array[z] = array[z + 1];
+              array[z + 1] = product;
             }
             break;
           case 'price-low':
-            if (this.listProducts[z].price > this.listProducts[z + 1].price) {
-              this.product = this.listProducts[z];
-              this.listProducts[z] = this.listProducts[z + 1];
-              this.listProducts[z + 1] = this.product;
+            if (array[z].price > array[z + 1].price) {
+              product = array[z];
+              array[z] = array[z + 1];
+              array[z + 1] = product;
             }
             break;
           case 'price-high':
-            if (this.listProducts[z].price < this.listProducts[z + 1].price) {
-              this.product = this.listProducts[z];
-              this.listProducts[z] = this.listProducts[z + 1];
-              this.listProducts[z + 1] = this.product;
+            if (array[z].price < array[z + 1].price) {
+              product = array[z];
+              array[z] = array[z + 1];
+              array[z + 1] = product;
+            }
+            break;
+          case 'options':
+            if (array[z].value > array[z + 1].value) {
+              product = array[z];
+              array[z] = array[z + 1];
+              array[z + 1] = product;
             }
             break;
           default:
@@ -91,6 +125,8 @@ export class ProductsComponent implements OnInit {
         }
       }
     }
+
+    return array;
   }
 
   checked() {

@@ -5,6 +5,10 @@
 input {
     cursor: pointer;
 }
+
+label{
+    margin-bottom: 0;
+}
 .row ul{
     display: flex;
     justify-content: space-between;
@@ -62,6 +66,13 @@ a {
 
 .filtersConfiguration{
     padding: 0;
+}
+
+.custom-control-label:before{
+    background-color:white;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+    background-color:#aa24d3;
 }
 
 @media (max-width: 425px){

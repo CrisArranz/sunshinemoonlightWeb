@@ -19,6 +19,20 @@
         <div class="col-md-3 col-12">
             <div class="row">
                 <div class="col-12 mt-2 filtersConfiguration">
+                    <div class="navbar">
+                        <div class="row">
+                            <div class="col-2">
+                                <button type="button" class="close" aria-label="Close" id="delFilters" (click)="delFilters()">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="col-10">
+                                <label for="delFilters">Quitar los filtros</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-2 filtersConfiguration">
                     <nav class="navbar navbar-light">
                         <div class="w-100 filterOption" data-toggle="collapse" data-target="#listTypeProducts" aria-controls="listTypeProducts" aria-expanded="false" aria-label="Type Products">
                             <p class="text-left font-weight-bold float-left mb-1">Filtrar por tipo</p>
@@ -27,8 +41,10 @@
                         <div class="collapse navbar-collapse" id="listTypeProducts">
                             <ul>
                                 <li *ngFor="let option of productOptions" (change)="checked()">
-                                    <input type="checkbox" value="{{option.value}}" id="{{option.name}}" [(ngModel)]="option.checked">
-                                    <span class="listItems">{{option.title}}</span>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" value="{{option.value}}" class="custom-control-input" id="{{option.name}}" [(ngModel)]="option.checked">
+                                        <label class="custom-control-label" for="{{option.name}}">{{option.title}}</label>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -43,8 +59,10 @@
                         <div class="collapse navbar-collapse" id="listArtistsProducts">
                             <ul>
                                 <li *ngFor="let option of artistOptions" (change)="checked()">
-                                    <input type="checkbox" value="{{option.value}}" id="{{option.name}}" [(ngModel)]="option.checked">
-                                    <span class="listItems">{{option.title}}</span>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" value="{{option.value}}" class="custom-control-input" id="{{option.name}}" [(ngModel)]="option.checked">
+                                        <label class="custom-control-label" for="{{option.name}}">{{option.title}}</label>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
