@@ -12,7 +12,7 @@ import { Product } from '../../../models/products/product.model';
 export class ProductDetailComponent implements OnInit {
 
   productDetail: Product = new Product();
-  selectedImage: number;
+  selectedImage = 0;
 
   constructor(private productService: ProductsService, private activeRoute: ActivatedRoute) { }
 
@@ -26,7 +26,6 @@ export class ProductDetailComponent implements OnInit {
         this.productDetail.pictures = product[0].pictures;
         this.productDetail.price = product[0].price;
         this.productDetail.type = product[0].type;
-        this.selectedImage = 0;
         console.log(this.productDetail.pictures[0]);
       }).catch((err) => {
         console.log('Error', err);
@@ -46,8 +45,8 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  loadImage(urlImg: string, selectedImage: number) {
-
+  changeSelectedImage(selectedImage: number) {
+    this.selectedImage = selectedImage;
   }
 
 }

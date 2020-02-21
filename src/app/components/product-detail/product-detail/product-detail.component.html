@@ -10,11 +10,11 @@
     <div class="row min-vh-100">
         <div class="col-md-6 col-12">
             <div class="row">
-                <div class="col-md-9 col-12"><img id="imgPrincipal" class="w-100" src="{{productDetail.picture}}"></div>
+                <div class="col-md-9 col-12"><img id="imgPrincipal" class="w-100" src="{{productDetail.pictures[selectedImage]}}"></div>
                 <div class="col-md-3 col-12">
                     <div class="row">
                         <div *ngFor="let picture of productDetail.pictures ; let i = index" class="col-md-12 col-4 mb-2 detailImage">
-                            <img class="w-100" [ngClass]="{'_shadow' : selectedImage === i}" src="{{picture}}" (click)="loadImage('',1)">
+                            <img class="w-100" [ngClass]="{'_shadow' : selectedImage === i}" src="{{picture}}" (click)="changeSelectedImage(i)">
                         </div>
                     </div>
                 </div>
