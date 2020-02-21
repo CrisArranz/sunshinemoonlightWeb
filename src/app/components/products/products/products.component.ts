@@ -23,6 +23,7 @@ export class ProductsComponent implements OnInit {
       .then((products) => {
         this.listProducts = products;
         this.allProducts = products;
+        this.countProducts = this.listProducts.length;
         this.orderProducts('name-asc');
         this.getAllOptions();
       })
