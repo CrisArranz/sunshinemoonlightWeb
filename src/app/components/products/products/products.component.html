@@ -15,7 +15,7 @@
             <p class="text-right font-weight-bold">{{countProducts}} productos encontrados</p>
         </div>
     </div>
-    <div class="row product">
+    <div class="row product min-vh-100">
         <div class="col-md-3 col-12">
             <div class="row">
                 <div class="col-12 mt-2 filtersConfiguration">
@@ -27,7 +27,7 @@
                                 </button>
                             </div>
                             <div class="col-10">
-                                <label for="delFilters">Quitar los filtros</label>
+                                <label class="delFilters" for="delFilters">Quitar los filtros</label>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9 col-12 min-vh-100">
+        <div class="col-md-9 col-12">
             <div class="row">
                 <div *ngFor="let product of listProducts" class="col-md-4 col-12 mt-1 mb-1">
                     <div class="row">

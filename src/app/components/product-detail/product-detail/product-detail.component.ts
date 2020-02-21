@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { ProductsService } from '../../../services/products/products.service';
+import { Product } from '../../../models/products/product.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,19 +11,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  urlImage: string;
+  productDetail: Product = new Product();
   selectedImage: number;
 
-  constructor() { }
+  constructor(private productService: ProductsService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.urlImage = '../../../assets/EMxBM-3U8AAJ1c8.jpg';
-    this.selectedImage = 1;
+    this.getProduct().then(
+      (product: any) => {
+        this.productDetail.artist = product[0].artist;
+        this.productDetail.description = product[0].description;
+        this.productDetail.name = product[0].name;
+        this.productDetail.picture = product[0].picture;
+        this.productDetail.pictures = product[0].pictures;
+        this.productDetail.price = product[0].price;
+        this.productDetail.type = product[0].type;
+        this.selectedImage = 0;
+        console.log(this.productDetail.pictures[0]);
+      }).catch((err) => {
+        console.log('Error', err);
+      });
   }
 
-  loadImage(urlImg: string, selectedImage: number){
-    this.urlImage = urlImg;
-    this.selectedImage = selectedImage;
+  getProduct = () => {
+    return new Promise((resolve, reject) => {
+      this.productService
+        .getProduct(this.activeRoute.snapshot.params.name)
+        .subscribe(res => {
+          if (res === null) {
+            reject('Ha ocurrido un error en productService');
+          }
+          resolve(res);
+        });
+    });
+  }
+
+  loadImage(urlImg: string, selectedImage: number) {
+
   }
 
 }

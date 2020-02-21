@@ -11,4 +11,8 @@ export class ProductsService {
   getAllProducts() {
     return this.db.collection('SML_Products').valueChanges();
   }
+
+  getProduct(id: string) {
+    return this.db.collection('SML_Products', ref => ref.where('name', '==', id)).valueChanges();
+  }
 }

@@ -6,7 +6,7 @@ import { ProductDetailComponent } from '../components/product-detail/product-det
 
 const appRoutes: Routes = [
     {path: 'products', component: ProductsComponent, pathMatch: 'prefix'},
-    {path: 'product-detail/:id', component: ProductDetailComponent, pathMatch: 'prefix'},
+    {path: 'product-detail/:name', component: ProductDetailComponent, pathMatch: 'prefix'},
     {path: '', redirectTo: 'products', pathMatch: 'full'}
 ];
 

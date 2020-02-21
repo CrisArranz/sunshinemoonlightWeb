@@ -7,17 +7,15 @@
             
         </ul>
     </nav>
-    <div class="row">
+    <div class="row min-vh-100">
         <div class="col-md-6 col-12">
             <div class="row">
-                <div class="col-md-9 col-12"><img id="imgPrincipal" class="w-100" src="{{urlImage}}"></div>
+                <div class="col-md-9 col-12"><img id="imgPrincipal" class="w-100" src="{{productDetail.picture}}"></div>
                 <div class="col-md-3 col-12">
                     <div class="row">
-                        <div class="col-md-12 col-4 mb-2 detailImage"><img class="w-100" [ngClass]="{'_shadow' : selectedImage === 1}" src="../../../assets/EMxBM-3U8AAJ1c8.jpg" (click)="loadImage('../../../assets/EMxBM-3U8AAJ1c8.jpg',1)"></div>
-                        <div class="col-md-12 col-4 mb-2 detailImage"><img class="w-100" [ngClass]="{'_shadow' : selectedImage === 2}" src="../../../assets/EMxBM-5UUAE1Cn6.jpg" (click)="loadImage('../../../assets/EMxBM-5UUAE1Cn6.jpg',2)"></div>
-                        <div class="col-md-12 col-4 mb-2 detailImage"><img class="w-100" [ngClass]="{'_shadow' : selectedImage === 3}" src="../../../assets/EMxBM-6UwAAbPry.jpg" (click)="loadImage('../../../assets/EMxBM-6UwAAbPry.jpg',3)"></div>
-                        <div class="col-md-12 col-4 mb-2 detailImage"><img class="w-100" [ngClass]="{'_shadow' : selectedImage === 4}" src="../../../assets/EMxBM-3U8AAJ1c8.jpg" (click)="loadImage('../../../assets/EMxBM-3U8AAJ1c8.jpg',4)"></div>
-                        <div class="col-md-12 col-4 mb-2 detailImage"><img class="w-100" [ngClass]="{'_shadow' : selectedImage === 5}" src="../../../assets/EMxBM-5UUAE1Cn6.jpg" (click)="loadImage('../../../assets/EMxBM-5UUAE1Cn6.jpg',5)"></div>
+                        <div *ngFor="let picture of productDetail.pictures ; let i = index" class="col-md-12 col-4 mb-2 detailImage">
+                            <img class="w-100" [ngClass]="{'_shadow' : selectedImage === i}" src="{{picture}}" (click)="loadImage('',1)">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -26,7 +24,17 @@
             <div class="row">
                 <div class="col-12">
                     <p class="font-weight-bold sm-size-md">DESCRIPCION</p>
-                    <p class="sm-color-black">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p class="sm-color-black">{{productDetail.description}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="sm-color-black priceProductDetail">{{productDetail.price}} €</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-outline-success">AÑADIR A LA CESTA</button>
                 </div>
             </div>
         </div>
