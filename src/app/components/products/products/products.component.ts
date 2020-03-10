@@ -48,6 +48,19 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  getProductBy = (element, value) => {
+    return new Promise((resolve, reject) => {
+      this.productService
+        .getProductBy(element, value)
+        .subscribe(res => {
+          if (res === null) {
+            reject('Ha ocurrido un error en productService');
+          }
+          resolve(res);
+        });
+    });
+  }
+
   getAllOptions = () => {
     return new Promise((resolve, reject) => {
     this.optionService
@@ -130,17 +143,34 @@ export class ProductsComponent implements OnInit {
   }
 
   checked() {
-    const optionsChecked = [];
+    let optionsChecked = [];
+    const list = [];
     for (let i = 0; i < this.productOptions.length; i++) {
       if (this.productOptions[i].checked) {
         optionsChecked.push((this.productOptions[i].name));
       }
     }
+    if (optionsChecked.length > 0) {
+      this.getProductBy('type', optionsChecked).then((products: Array<any>) => {
+        for (let x = 0; x < products.length; x++){
+          list.push(products[x]);
+        }
+      });
+    }
+    optionsChecked = [];
     for (let i = 0; i < this.artistOptions.length; i++) {
       if (this.artistOptions[i].checked) {
         optionsChecked.push((this.artistOptions[i].name));
       }
     }
+    if (optionsChecked.length > 0) {
+      this.getProductBy('artist', optionsChecked).then((products: Array<any>) => {
+        for (let x = 0; x < products.length; x++){
+          list.push(products[x]);
+        }
+      });
+    }
+    console.log(list);
     if (optionsChecked.length > 0) {
       this.listProducts = this.allProducts.filter(product => (optionsChecked.includes(product.type) || optionsChecked.includes(product.artist)));
       this.countProducts = this.listProducts.length;
