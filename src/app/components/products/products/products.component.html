@@ -40,7 +40,7 @@
                         </div>
                         <div class="collapse navbar-collapse" id="listTypeProducts">
                             <ul>
-                                <li *ngFor="let option of productOptions" (change)="checked()">
+                                <li *ngFor="let option of productOptions">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" value="{{option.value}}" class="custom-control-input" id="{{option.name}}" [(ngModel)]="option.checked">
                                         <label class="custom-control-label" for="{{option.name}}">{{option.title}}</label>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="collapse navbar-collapse" id="listArtistsProducts">
                             <ul>
-                                <li *ngFor="let option of artistOptions" (change)="checked()">
+                                <li *ngFor="let option of artistOptions">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" value="{{option.value}}" class="custom-control-input" id="{{option.name}}" [(ngModel)]="option.checked">
                                         <label class="custom-control-label" for="{{option.name}}">{{option.title}}</label>
@@ -68,6 +68,17 @@
                         </div>
                     </nav>
                 </div>
+              <div class="col-12 mt-2 filtersConfiguration">
+                <div class="navbar">
+                  <div class="row">
+                    <div class="col-2">
+                      <button type="button" class="btn btn-outline-primary custom-button" aria-label="filter" (click)="checked()">
+                        <span aria-hidden="true">Filtrar</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
         <div class="col-md-9 col-12">
@@ -79,7 +90,7 @@
                                 <img class="imgProduct" src="{{product.picture}}">
                             </a>
                         </div>
-                    </div> 
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <div>
