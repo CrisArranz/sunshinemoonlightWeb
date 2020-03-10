@@ -141,7 +141,11 @@ export class ProductsComponent implements OnInit {
         optionsChecked.push((this.artistOptions[i].name));
       }
     }
-    this.listProducts = this.allProducts.filter(product => (optionsChecked.includes(product.type) || optionsChecked.includes(product.artist)));
-    this.countProducts = this.listProducts.length;
+    if (optionsChecked.length > 0) {
+      this.listProducts = this.allProducts.filter(product => (optionsChecked.includes(product.type) || optionsChecked.includes(product.artist)));
+      this.countProducts = this.listProducts.length;
+    } else {
+      this.listProducts = this.allProducts;
+    }
   }
 }
