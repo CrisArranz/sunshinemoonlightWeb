@@ -73,7 +73,23 @@ a {
     background-color:white;
 }
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
-    background-color:#aa24d3;
+  background-color:#aa24d3;
+  border-color: #aa24d3;
+}
+.custom-button{
+  color: #aa24d3;
+  border-color: #aa24d3;
+}
+.custom-button:hover{
+  background-color:#aa24d3!important;
+  color:white;
+}
+
+.custom-button:focus, .custom-button:active {
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(170,36,211,1)!important;
+  -moz-box-shadow: 0px 0px 10px 0px rgba(170,36,211,1)!important;
+  box-shadow: 0px 0px 10px 0px rgba(170,36,211,1)!important;
+  border-color: #aa24d3!important;
 }
 
 @media (max-width: 425px){
